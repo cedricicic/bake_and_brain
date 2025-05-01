@@ -23,7 +23,7 @@ export default function Hero() {
             Where creativity meets deliciousness
           </p>
           <Link
-  href="/sample"
+  href="/lessons"
   className="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
 >
   Get Started
