@@ -66,44 +66,46 @@ export default function LessonsPreview() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
           >
             {lessons.map((lesson) => (
-              <motion.div
-                key={lesson.id}
-                variants={item}
-                whileHover={{ scale: 1.02 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
-              >
-                <div className={`h-48 ${lesson.color} relative`}>
-                  <div className="absolute inset-0 bg-black/20" />
-                  <div className="absolute bottom-4 left-4">
-                    <h3 className="text-2xl font-bold text-white">{lesson.title}</h3>
-                    <p className="text-white/90">{lesson.subtitle}</p>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className={`p-2 rounded-lg ${lesson.color} text-white`}>
-                      {lesson.icon}
-                    </span>
-                    <div className="flex gap-4">
-                      <span className="text-sm bg-gray-100 px-3 py-1 rounded-full">
-                        {lesson.duration}
-                      </span>
-                      <span className="text-sm bg-gray-100 px-3 py-1 rounded-full">
-                        Grade {lesson.grade}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-6">{lesson.description}</p>
-                  <Link 
-                    href={`/lessons/${lesson.id}`}
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    View Lesson Details
-                    <ChevronRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
+  <Link key={lesson.id} href={`/lessons/${lesson.id}`} className="block">
+    <motion.div
+      variants={item}
+      whileHover={{ scale: 1.02 }}
+      className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer"
+    >
+      <div className="h-48 relative">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${lesson.image})` }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute bottom-4 left-4">
+          <h3 className="text-2xl font-bold text-white">{lesson.title}</h3>
+          <p className="text-white/90">{lesson.subtitle}</p>
+        </div>
+      </div>
+      <div className="p-6">
+        <div className="flex items-center gap-2 mb-4">
+          <span className={`p-2 rounded-lg ${lesson.color} text-white`}>
+            {lesson.icon}
+          </span>
+          <div className="flex gap-4">
+            <span className="text-sm bg-gray-100 px-3 py-1 rounded-full ml-3">
+              {lesson.duration}
+            </span>
+            <span className="text-sm bg-gray-100 px-3 py-1 rounded-full">
+              Grade {lesson.grade}
+            </span>
+          </div>
+        </div>
+        <p className="text-gray-600 mb-6">{lesson.description}</p>
+        <div className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+          View Lesson Details
+          <ChevronRight className="w-4 h-4 ml-2" />
+        </div>
+      </div>
+    </motion.div>
+  </Link>
+))}
           </motion.div>
 
           {/* Features Section */}
@@ -114,22 +116,22 @@ export default function LessonsPreview() {
             className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-blue-600" />
+              <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                <Clock className="w-6 h-6 text-gray-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Time-Efficient</h3>
               <p className="text-gray-600">Lessons designed to fit within standard class periods</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-purple-600" />
+              <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                <BookOpen className="w-6 h-6 text-gray-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Curriculum Aligned</h3>
               <p className="text-gray-600">Meets educational standards while being engaging</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                <Lightbulb className="w-6 h-6 text-green-600" />
+              <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                <Lightbulb className="w-6 h-6 text-gray-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Hands-On Learning</h3>
               <p className="text-gray-600">Practical experiments that reinforce theoretical concepts</p>

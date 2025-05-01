@@ -83,7 +83,7 @@ export default function EnhancedBreadPage() {
       <div className="pt-16"> {/* Add padding to account for fixed navbar */}
         <div className="max-w-5xl mx-auto p-8">
           {/* Header */}
-          <div className="bg-white rounded-xl shadow-md p-8 mb-8 border-t-4 border-black">
+          <div className="bg-white rounded-xl shadow-md p-8 mb-8 border-t-4 border-blue-600">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6">
               <div>
                 <h1 className="text-4xl font-bold text-black mb-2">Rise to the Occasion</h1>
@@ -102,7 +102,7 @@ export default function EnhancedBreadPage() {
                   </span>
                 </div>
                 
-                <div className="bg-gray-100 p-5 rounded-lg border border-gray-200">
+                <div className="bg-blue-100 p-5 rounded-lg border border-blue-200">
                   <h3 className="text-xl font-semibold text-black mb-3">Learning Objectives</h3>
                   <ul className="list-disc pl-6 space-y-2 text-black">
                     <li>Understand the biological process of aerobic and anaerobic respiration in yeast</li>
@@ -113,7 +113,7 @@ export default function EnhancedBreadPage() {
                 </div>
               </div>
               
-              <div className="flex-1 bg-gray-100 p-5 rounded-lg border border-gray-200">
+              <div className="flex-1 bg-blue-100 p-5 rounded-lg border border-blue-200">
                 <h3 className="text-xl font-semibold text-black mb-3">Materials Needed</h3>
                 <ul className="list-disc pl-6 space-y-2 text-black">
                   <li>Active dry yeast (one packet per group)</li>
@@ -135,7 +135,7 @@ export default function EnhancedBreadPage() {
             <h3 className="text-2xl font-bold text-black mb-4">Lesson Timeline</h3>
             <div className="space-y-4">
               {activitySteps.map((step) => (
-                <div key={step.id} className="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-black">
+                <div key={step.id} className="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-blue-600">
                   <div 
                     className="flex items-start p-4 cursor-pointer hover:bg-gray-50 transition-colors"
                     onClick={() => toggleSection(step.id)}
@@ -175,7 +175,7 @@ export default function EnhancedBreadPage() {
           
           {/* Tips and Resources */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-black">
+            <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
               <h3 className="text-xl font-semibold text-black mb-4 flex items-center gap-2">
                 <Lightbulb className="w-5 h-5" />
                 Tips for Success
@@ -189,7 +189,7 @@ export default function EnhancedBreadPage() {
               </ul>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-black">
+            <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
               <h3 className="text-xl font-semibold text-black mb-4 flex items-center gap-2">
                 <BookOpen className="w-5 h-5" />
                 Additional Resources
