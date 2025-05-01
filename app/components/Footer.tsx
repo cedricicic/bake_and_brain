@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 text-gray-900">Bake & Brain</h3>
             <p className="text-gray-700">
-              Bringing together the best of baking and creativity.
+            Bringing together the best of baking and creativity to inspire hands-on learning, spark curiosity, and make STEM education more accessible, one recipe at a time.
             </p>
           </div>
           <div>
@@ -26,6 +26,11 @@ export default function Footer() {
               <li>
                 <Link href="/about" className="text-gray-600 hover:text-gray-900">
                   About
+                </Link>
+              </li>
+              <li>
+                <Link href="/lessons" className="text-gray-600 hover:text-gray-900">
+                  Lessons
                 </Link>
               </li>
               <li>
