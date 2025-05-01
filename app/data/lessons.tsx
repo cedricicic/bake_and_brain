@@ -27,19 +27,19 @@ export const lessons: Lesson[] = [
     duration: '80 min',
     grade: '9-10',
     icon: <FlaskRound className="w-6 h-6" />,
-    color: 'bg-blue-500',
-    image: '/yeast.png'
+    color: 'bg-purple-500',
+    image: '/yeast.jpg'
   },
   {
-    id: 'chemistry-of-baking',
-    title: 'The Chemistry of Baking',
-    subtitle: 'Understanding Chemical Reactions',
-    description: 'Discover the science behind baking through experiments with acids, bases, and chemical reactions.',
-    duration: '60 min',
-    grade: '8-9',
+    id: 'candy-making',
+    title: 'Sweet Chemistry',
+    subtitle: 'Understanding Thermodynamics & Crystal Formation',
+    description: 'Discover the world of crystallization by watching sugar molecules organize into intricate geometric structures.',
+    duration: '2.5 hours',
+    grade: '11-12',
     icon: <Brain className="w-6 h-6" />,
-    color: 'bg-purple-500',
-    image: '/chemistry-baking.jpg'
+    color: 'bg-teal-500',
+    image: '/candy.jpg'
   },
   {
     id: 'measurement-math',
