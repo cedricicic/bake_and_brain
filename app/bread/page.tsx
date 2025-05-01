@@ -14,14 +14,14 @@ import {
 } from 'lucide-react';
 
 export default function EnhancedBreadPage() {
-  const [expandedSection, setExpandedSection] = useState(null);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
   
   // Toggle section expansion
-  const toggleSection = (sectionId: string | React.SetStateAction<null>) => {
+  const toggleSection = (sectionId: string) => {
     if (expandedSection === sectionId) {
       setExpandedSection(null);
     } else {
-      setExpandedSection(sectionId as null);
+      setExpandedSection(sectionId);
     }
   };
   
