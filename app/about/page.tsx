@@ -84,7 +84,7 @@ export default function AboutPage() {
                 className="mt-6"
               >
                 <a
-                  href="https://www.ontario.ca/page/summer-company"
+                  href="https://www.toronto.ca/business-economy/business-operation-growth/business-incentives/summer-company-grant/"
                   target="_blank"
                   rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-800 transform transition-transform duration-200 origin-left hover:scale-105"
