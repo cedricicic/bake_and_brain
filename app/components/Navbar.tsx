@@ -17,8 +17,8 @@ export default function Navbar() {
               <Link href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                 Home
               </Link>
-              <Link href="/sample" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
-                Sample
+              <Link href="/lessons" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                Lessons
               </Link>
               <Link href="/contact" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                 Contact
