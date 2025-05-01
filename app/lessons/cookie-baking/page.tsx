@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { 
   Clock, 
-  FlaskRound, 
+  Calculator, 
   BookOpen, 
   FileText, 
   Lightbulb, 
@@ -15,21 +15,25 @@ import {
   ChevronDown,
   ChevronUp,
   ExternalLink,
-  CalendarCheck
+  CalendarCheck,
+  Divide,
+  PieChart,
+  Percent,
+  Scale,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
-export default function ScienceActivityParentPage() {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+export default function CookieMathParentPage() {
+  const [expandedSection, setExpandedSection] = useState(null);
   const [showRegistrationInfo, setShowRegistrationInfo] = useState(false);
   
-  const toggleSection = (sectionId: string) => {
+  const toggleSection = (sectionId: string | React.SetStateAction<null>) => {
     if (expandedSection === sectionId) {
       setExpandedSection(null);
     } else {
-      setExpandedSection(sectionId);
+      setExpandedSection(sectionId as any);
     }
   };
 
@@ -37,6 +41,58 @@ export default function ScienceActivityParentPage() {
     setShowRegistrationInfo(!showRegistrationInfo);
   };
 
+  const activityHighlights = [
+    {
+      id: 'ratio',
+      icon: <Scale className="w-6 h-6 text-blue-600" />,
+      title: 'Ratio & Proportion Laboratory',
+      description: 'Students scale recipes while maintaining perfect flavor balance',
+      details: 'Your student will dive into the practical world of ratios by scaling cookie recipes up and down. They\'ll learn how to maintain the critical balance between ingredients when doubling, tripling, or halving recipes. This hands-on experience transforms abstract ratio concepts into delicious, tangible results that demonstrate how mathematics is essential in everyday life.'
+    },
+    {
+      id: 'fraction',
+      icon: <PieChart className="w-6 h-6 text-blue-600" />,
+      title: 'Fraction Operations Workshop',
+      description: 'Master adding, subtracting, multiplying and dividing fractions with precision',
+      details: 'The workshop\'s highlight is our fraction investigation where students use measuring cups and spoons to physically add, subtract, multiply and divide fractions. Through combining ingredients, students will directly observe how fractions interact, convert between mixed numbers and improper fractions, and find common denominators—all while creating perfectly balanced cookie dough.'
+    },
+    {
+      id: 'algebra',
+      icon: <Calculator className="w-6 h-6 text-blue-600" />,
+      title: 'Applied Algebraic Expressions',
+      description: 'Convert word problems into algebraic equations to solve batch sizing challenges',
+      details: 'Students will create algebraic expressions to determine exactly how much of each ingredient is needed for different batch sizes. They\'ll learn to identify variables, constants, and coefficients in real-world contexts, then use these equations to calculate precise measurements. This approach transforms abstract algebraic concepts into practical tools for solving everyday problems.'
+    },
+    {
+      id: 'percent',
+      icon: <Percent className="w-6 h-6 text-blue-600" />,
+      title: 'Percentage & Conversion Skills',
+      description: 'Calculate percentage changes when modifying recipes',
+      details: 'Throughout the workshop, students apply percentage calculations to modify recipes, convert between different measurement systems (cups to grams, teaspoons to milliliters), and determine how ingredient proportions affect the final product. They\'ll create comparison charts showing how changes in measurements create different textures and flavors—applying mathematical analysis to improve their results.'
+    },
+    {
+      id: 'problem',
+      icon: <Brain className="w-6 h-6 text-blue-600" />,
+      title: 'Mathematical Problem-Solving',
+      description: 'Develop multiple approaches to solving complex, multi-step problems',
+      details: 'This isn\'t just about baking cookies! Students will learn structured problem-solving approaches including working backward from a desired outcome, using proportional reasoning, creating data tables, and employing estimation techniques. These same mathematical thinking strategies apply directly to standardized tests, higher mathematics courses, and numerous real-world scenarios.'
+    },
+  ];
+
+  const testimonials = [
+    {
+      quote: "Fusce pellentesque placerat lacus at interdum. Curabitur congue vehicula purus sed accumsan. Integer ultrices dolor vestibulum, volutpat tellus a, accumsan purus. Nunc tincidunt sem ut viverra vulputate. ",
+      parent: "Maria T., parent of 9th grader"
+    },
+    {
+      quote: "Eleifend ultricies. Nunc fringilla ex et elit finibus, non imperdiet quam consequat.Integer ultrices dolor vestibulum,  Proin porta magna quis felis vehicula tristique.",
+      parent: "David K., parent of 10th grader"
+    },
+    {
+      quote: "Phasellus sit amet maximus mauris. Vivamus vestibulum maximus interdum. Nunc ut sagittis ex. Duis molestie consequat rutrum. Aliquam eu sagittis purus. Fusce bibendum cursus diam sed mollis. Nulla at arcu ut ero",
+      parent: "Jennifer L., parent of 9th grader"
+    }
+  ];
   // Animation variants
   const fadeIn = {
     hidden: { opacity: 0 },
@@ -85,61 +141,8 @@ export default function ScienceActivityParentPage() {
     }
   };
 
-  const activityHighlights = [
-    {
-      id: 'handson',
-      icon: <FlaskRound className="w-6 h-6 text-purple-600" />,
-      title: 'Hands-On Baking Experiment',
-      description: 'Students make their own dough and watch the science of yeast in action',
-      details: 'Your child will prepare real bread dough using scientific principles, observing how yeast converts sugar into carbon dioxide to create those wonderful bubbles that make bread rise. This hands-on experience connects abstract scientific concepts to everyday cooking skills.'
-    },
-    {
-      id: 'balloon',
-      icon: <Star className="w-6 h-6 text-purple-600" />,
-      title: 'Exciting Balloon Demonstration',
-      description: 'Watch balloons inflate using only yeast, sugar and water!',
-      details: 'The highlight of our session is our dramatic balloon demonstration where students will see yeast respiration inflate balloons right before their eyes! This visual demonstration perfectly illustrates gas production and pressure concepts in a memorable way that sticks with students long after the class ends.'
-    },
-    {
-      id: 'skills',
-      icon: <Brain className="w-6 h-6 text-purple-600" />,
-      title: 'Critical STEM Skills Development',
-      description: 'Build data collection, analysis, and scientific reasoning abilities',
-      details: 'Throughout the activity, students will collect real scientific data, create graphs, analyze results, and apply scientific principles including gas laws and cellular respiration. These are the exact skills needed to excel in high school science courses and beyond.'
-    },
-    {
-      id: 'teamwork',
-      icon: <Users className="w-6 h-6 text-purple-600" />,
-      title: 'Collaborative Learning',
-      description: 'Students work in small teams to conduct experiments and share discoveries',
-      details: 'Working in small groups, your child will develop crucial teamwork and communication skills as they collaborate on experiments, share observations, and present their findings. Our instructors facilitate positive group dynamics to ensure every student contributes and feels valued.'
-    },
-    {
-      id: 'connections',
-      icon: <Medal className="w-6 h-6 text-purple-600" />,
-      title: 'Real-World Applications',
-      description: 'Discover how these scientific principles appear in daily life and careers',
-      details: 'This isn\'t just about baking bread! Students will learn how the same processes of fermentation and gas production are used in numerous industries and scientific fields, from food production to biotechnology and renewable energy development.'
-    },
-  ];
-
-  const testimonials = [
-    {
-      quote: "Fusce pellentesque placerat lacus at interdum. Curabitur congue vehicula purus sed accumsan. Integer ultrices dolor vestibulum, volutpat tellus a, accumsan purus. Nunc tincidunt sem ut viverra vulputate. ",
-      parent: "Maria T., parent of 9th grader"
-    },
-    {
-      quote: "Eleifend ultricies. Nunc fringilla ex et elit finibus, non imperdiet quam consequat.Integer ultrices dolor vestibulum,  Proin porta magna quis felis vehicula tristique.",
-      parent: "David K., parent of 10th grader"
-    },
-    {
-      quote: "Phasellus sit amet maximus mauris. Vivamus vestibulum maximus interdum. Nunc ut sagittis ex. Duis molestie consequat rutrum. Aliquam eu sagittis purus. Fusce bibendum cursus diam sed mollis. Nulla at arcu ut ero",
-      parent: "Jennifer L., parent of 9th grader"
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white text-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-800">
       <Navbar />
       <div className="pt-16"> {/* Add padding to account for fixed navbar */}
         {/* Hero Section */}
@@ -147,7 +150,7 @@ export default function ScienceActivityParentPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-purple-700 text-white py-20 px-8"
+          className="bg-blue-700 text-white py-20 px-8"
         >
           <div className="max-w-5xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center gap-8">
@@ -161,9 +164,9 @@ export default function ScienceActivityParentPage() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.3 }}
-                  className="bg-purple-900 text-purple-100 px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block"
+                  className="bg-blue-900 text-blue-100 px-4 py-1 rounded-full text-sm font-medium mb-4 inline-block"
                 >
-                  Upcoming STEM Workshop
+                  Interactive Mathematics Workshop
                 </motion.span>
                 <motion.h1 
                   initial={{ opacity: 0 }}
@@ -171,7 +174,7 @@ export default function ScienceActivityParentPage() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-5xl font-bold mb-4"
                 >
-                  Rise to the Occasion
+                  Cookie Calculations
                 </motion.h1>
                 <motion.h2 
                   initial={{ opacity: 0 }}
@@ -179,7 +182,7 @@ export default function ScienceActivityParentPage() {
                   transition={{ duration: 0.6, delay: 0.5 }}
                   className="text-2xl mb-6"
                 >
-                  A Delicious Journey into Science for Grades 9-10
+                  Mastering Ratios, Fractions & Algebraic Expressions Through Baking
                 </motion.h2>
                 <motion.p 
                   initial={{ opacity: 0 }}
@@ -187,7 +190,7 @@ export default function ScienceActivityParentPage() {
                   transition={{ duration: 0.6, delay: 0.6 }}
                   className="text-lg mb-8"
                 >
-                  Give your teen the gift of discovery with our engaging, hands-on workshop that explores biology, chemistry, and physics through the science of bread-making!
+                  Transform your middle schooler's math experience with our engaging workshop that turns abstract mathematical concepts into delicious, hands-on learning they'll remember!
                 </motion.p>
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
@@ -200,7 +203,7 @@ export default function ScienceActivityParentPage() {
                     whileHover="hover"
                     whileTap="tap"
                     variants={buttonHover}
-                    className="bg-white text-purple-700 hover:bg-purple-100 px-6 py-3 rounded-lg font-semibold transition-colors shadow-lg"
+                    className="bg-white text-blue-700 hover:bg-blue-100 px-6 py-3 rounded-lg font-semibold transition-colors shadow-lg"
                   >
                     Reserve a Spot
                   </motion.button>
@@ -209,7 +212,7 @@ export default function ScienceActivityParentPage() {
                     whileHover="hover"
                     whileTap="tap"
                     variants={buttonHover}
-                    className="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded-lg font-semibold transition-colors"
+                    className="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-lg font-semibold transition-colors"
                   >
                     Learn More
                   </motion.a>
@@ -221,14 +224,14 @@ export default function ScienceActivityParentPage() {
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="md:w-1/2 rounded-lg overflow-hidden shadow-xl"
               >
-                <div className="aspect-w-16 aspect-h-9 bg-purple-200 flex items-center justify-center">
+                <div className="aspect-w-16 aspect-h-9 bg-blue-200 flex items-center justify-center">
                   <div className="text-center p-8">
                     <motion.img 
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.4 }}
-                      src="/yeast.jpg" 
-                      alt="Interactive bread science experiment" 
+                      src="/cookies.jpg" 
+                      alt="Students calculating ratios for cookie recipes" 
                       className="w-full max-w-md rounded-xl"
                     />
                   </div>
@@ -246,16 +249,18 @@ export default function ScienceActivityParentPage() {
               animate="visible"
               exit="exit"
               variants={slideDown}
-              className="bg-purple-100 py-8 px-4 border-b-2 border-purple-200"
+              className="bg-blue-100 py-8 px-4 border-b-2 border-blue-200"
             >
-              <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+              <motion.div 
+                variants={fadeIn}
+                className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg"
+              >
                 <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-2xl font-bold text-purple-800">Registration Details</h3>
+                  <h3 className="text-2xl font-bold text-blue-800">Registration Details</h3>
                   <motion.button 
                     onClick={toggleRegistrationInfo}
-                    whileHover="hover"
-                    whileTap="tap"
-                    variants={buttonHover}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
                     className="text-gray-500 hover:text-gray-700"
                   >
                     <ChevronUp className="w-6 h-6" />
@@ -264,42 +269,52 @@ export default function ScienceActivityParentPage() {
                 
                 <motion.div 
                   variants={staggerChildren}
-                  initial="hidden"
-                  animate="visible"
                   className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"
                 >
-                  <motion.div variants={fadeIn} className="flex items-start gap-3">
-                    <CalendarCheck className="w-5 h-5 text-purple-600 mt-1" />
+                  <motion.div 
+                    variants={fadeIn}
+                    className="flex items-start gap-3"
+                  >
+                    <CalendarCheck className="w-5 h-5 text-blue-600 mt-1" />
                     <div>
                       <h4 className="font-semibold">Upcoming Sessions</h4>
-                      <p>Saturday, May 10th, 2025 - 10:00am to 11:30am</p>
-                      <p>Saturday, May 24th, 2025 - 10:00am to 11:30am</p>
+                      <p>Saturday, May 24th, 2025 - 10:00am to 12:30pm</p>
+                      <p>Saturday, June 14th, 2025 - 10:00am to 12:30pm</p>
                     </div>
                   </motion.div>
                   
-                  <motion.div variants={fadeIn} className="flex items-start gap-3">
-                    <Users className="w-5 h-5 text-purple-600 mt-1" />
+                  <motion.div 
+                    variants={fadeIn}
+                    className="flex items-start gap-3"
+                  >
+                    <Users className="w-5 h-5 text-blue-600 mt-1" />
                     <div>
                       <h4 className="font-semibold">Class Size</h4>
-                      <p>Limited to 16 students to ensure personalized attention</p>
-                      <p className="text-purple-700 font-medium">Only 5 spots left for May 10th!</p>
+                      <p>Limited to 14 students to ensure personalized instruction and kitchen safety</p>
+                      <p className="text-blue-700 font-medium">Only 5 spots left for May 24th!</p>
                     </div>
                   </motion.div>
                   
-                  <motion.div variants={fadeIn} className="flex items-start gap-3">
-                    <Star className="w-5 h-5 text-purple-600 mt-1" />
+                  <motion.div 
+                    variants={fadeIn}
+                    className="flex items-start gap-3"
+                  >
+                    <Star className="w-5 h-5 text-blue-600 mt-1" />
                     <div>
                       <h4 className="font-semibold">Registration Fee</h4>
-                      <p>$45 per student (all materials included)</p>
-                      <p>10% sibling discount available</p>
+                      <p>$55 per student (all ingredients and mathematical tools included)</p>
+                      <p>15% sibling discount available for multiple registrations</p>
                     </div>
                   </motion.div>
                   
-                  <motion.div variants={fadeIn} className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-purple-600 mt-1" />
+                  <motion.div 
+                    variants={fadeIn}
+                    className="flex items-start gap-3"
+                  >
+                    <Clock className="w-5 h-5 text-blue-600 mt-1" />
                     <div>
                       <h4 className="font-semibold">Duration</h4>
-                      <p>90 minutes of engaging, hands-on learning</p>
+                      <p>2.5 hours of hands-on mathematical exploration and baking</p>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -308,11 +323,11 @@ export default function ScienceActivityParentPage() {
                   whileHover="hover"
                   whileTap="tap"
                   variants={buttonHover}
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-semibold transition-colors"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors"
                 >
                   Register Now
                 </motion.button>
-              </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -322,36 +337,36 @@ export default function ScienceActivityParentPage() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-wrap gap-3 justify-center mb-12"
           >
             <motion.span 
-              whileHover="hover"
-              variants={cardHover}
-              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2"
             >
-              <Clock className="w-4 h-4" /> 90 Minute Session
+              <Clock className="w-4 h-4" /> 2.5 Hour Workshop
             </motion.span>
             <motion.span 
-              whileHover="hover"
-              variants={cardHover}
-              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2"
             >
-              <Users className="w-4 h-4" /> Grades 9-10
+              <Users className="w-4 h-4" /> Grades 7-9
             </motion.span>
             <motion.span 
-              whileHover="hover"
-              variants={cardHover}
-              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2"
             >
-              <FlaskRound className="w-4 h-4" /> All Materials Provided
+              <Calculator className="w-4 h-4" /> All Materials Provided
             </motion.span>
             <motion.span 
-              whileHover="hover"
-              variants={cardHover}
-              className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2"
             >
-              <BookOpen className="w-4 h-4" /> Curriculum-Aligned
+              <BookOpen className="w-4 h-4" /> Aligned with Math Standards
             </motion.span>
           </motion.div>
           
@@ -359,46 +374,61 @@ export default function ScienceActivityParentPage() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl font-bold text-center text-purple-800 mb-10"
+            transition={{ duration: 0.5 }}
+            className="text-3xl font-bold text-center text-blue-800 mb-10"
           >
-            What Your Child Will Experience
+            What Your Student Will Experience
           </motion.h2>
           
           <motion.div 
-            variants={staggerChildren}
             initial="hidden"
             animate="visible"
+            variants={staggerChildren}
             className="space-y-4 mb-16"
           >
-            {activityHighlights.map((highlight) => (
+            {activityHighlights.map((highlight, index) => (
               <motion.div 
                 key={highlight.id} 
-                variants={fadeIn}
+                variants={{
+                  ...fadeIn,
+                  rest: { scale: 1, boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' },
+                  hover: { 
+                    scale: 1.02, 
+                    boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                    transition: { duration: 0.2 }
+                  }
+                }}
+                custom={index}
                 whileHover="hover"
-                className="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-purple-500"
+                initial="rest"
+                animate="rest"
+                className="bg-white rounded-lg shadow-md overflow-hidden border-l-4 border-blue-500"
               >
-                <div 
+                <motion.div 
                   className="flex items-start p-4 cursor-pointer hover:bg-gray-50 transition-colors"
                   onClick={() => toggleSection(highlight.id)}
                 >
-                  <div className="p-2 bg-purple-100 rounded-lg mr-4">
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="p-2 bg-blue-100 rounded-lg mr-4"
+                  >
                     {highlight.icon}
-                  </div>
+                  </motion.div>
                   
                   <div className="flex-1">
                     <h4 className="text-xl font-semibold text-gray-800">{highlight.title}</h4>
                     <p className="text-gray-600 mt-1">{highlight.description}</p>
                   </div>
                   
-                  <div className="ml-4">
-                    {expandedSection === highlight.id ? (
-                      <ChevronUp className="w-5 h-5 text-gray-600" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-600" />
-                    )}
-                  </div>
-                </div>
+                  <motion.div 
+                    animate={{ rotate: expandedSection === highlight.id ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="ml-4"
+                  >
+                    <ChevronDown className="w-5 h-5 text-gray-600" />
+                  </motion.div>
+                </motion.div>
                 
                 <AnimatePresence>
                   {expandedSection === highlight.id && (
@@ -407,7 +437,7 @@ export default function ScienceActivityParentPage() {
                       animate="visible"
                       exit="exit"
                       variants={slideDown}
-                      className="px-4 pb-4 pt-2 bg-purple-50 border-t border-gray-200"
+                      className="px-4 pb-4 pt-2 bg-blue-50 border-t border-gray-200"
                     >
                       <p className="text-gray-700">{highlight.details}</p>
                     </motion.div>
@@ -422,79 +452,128 @@ export default function ScienceActivityParentPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-xl shadow-lg p-8 mb-16 border-t-4 border-purple-500"
+            className="bg-white rounded-xl shadow-lg p-8 mb-16 border-t-4 border-blue-500"
           >
-            <h3 className="text-2xl font-bold text-purple-800 mb-6">What Your Child Will Learn</h3>
+            <motion.h3 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-2xl font-bold text-blue-800 mb-6"
+            >
+              What Your Student Will Learn
+            </motion.h3>
             
             <motion.div 
-              variants={staggerChildren}
               initial="hidden"
               animate="visible"
+              variants={staggerChildren}
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
             >
-              <motion.div variants={fadeIn} className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Check className="w-5 h-5 text-purple-600" />
-                  </div>
+              <div className="space-y-4">
+                <motion.div 
+                  variants={fadeIn}
+                  className="flex items-start gap-3"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.1, backgroundColor: "#93c5fd" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="bg-blue-100 p-2 rounded-full"
+                  >
+                    <Check className="w-5 h-5 text-blue-600" />
+                  </motion.div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Biology Concepts</h4>
-                    <p className="text-gray-600">Understanding cellular respiration, fermentation, and how organisms produce energy</p>
+                    <h4 className="font-semibold text-gray-800">Ratio & Proportion Mastery</h4>
+                    <p className="text-gray-600">Understanding equivalent ratios, scale factors, and proportional relationships through recipe scaling</p>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Check className="w-5 h-5 text-purple-600" />
-                  </div>
+                <motion.div 
+                  variants={fadeIn}
+                  className="flex items-start gap-3"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.1, backgroundColor: "#93c5fd" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="bg-blue-100 p-2 rounded-full"
+                  >
+                    <Check className="w-5 h-5 text-blue-600" />
+                  </motion.div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Chemistry Knowledge</h4>
-                    <p className="text-gray-600">Exploring chemical reactions, gas production, and the role of catalysts</p>
+                    <h4 className="font-semibold text-gray-800">Fraction Operations</h4>
+                    <p className="text-gray-600">Mastering addition, subtraction, multiplication, and division of fractions with practical applications</p>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Check className="w-5 h-5 text-purple-600" />
-                  </div>
+                <motion.div 
+                  variants={fadeIn}
+                  className="flex items-start gap-3"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.1, backgroundColor: "#93c5fd" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="bg-blue-100 p-2 rounded-full"
+                  >
+                    <Check className="w-5 h-5 text-blue-600" />
+                  </motion.div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Physics Principles</h4>
-                    <p className="text-gray-600">Applying gas laws to understand pressure, volume, and temperature relationships</p>
+                    <h4 className="font-semibold text-gray-800">Algebraic Expressions</h4>
+                    <p className="text-gray-600">Creating and solving equations to determine exact measurements for different batch sizes</p>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
               
-              <motion.div variants={fadeIn} className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Check className="w-5 h-5 text-purple-600" />
-                  </div>
+              <div className="space-y-4">
+                <motion.div 
+                  variants={fadeIn}
+                  className="flex items-start gap-3"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.1, backgroundColor: "#93c5fd" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="bg-blue-100 p-2 rounded-full"
+                  >
+                    <Check className="w-5 h-5 text-blue-600" />
+                  </motion.div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Data Analysis Skills</h4>
-                    <p className="text-gray-600">Collecting, graphing, and interpreting scientific data from experiments</p>
+                    <h4 className="font-semibold text-gray-800">Measurement & Conversion</h4>
+                    <p className="text-gray-600">Converting between measurement systems and understanding equivalence relationships</p>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Check className="w-5 h-5 text-purple-600" />
-                  </div>
+                <motion.div 
+                  variants={fadeIn}
+                  className="flex items-start gap-3"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.1, backgroundColor: "#93c5fd" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="bg-blue-100 p-2 rounded-full"
+                  >
+                    <Check className="w-5 h-5 text-blue-600" />
+                  </motion.div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Scientific Method</h4>
-                    <p className="text-gray-600">Forming hypotheses, conducting controlled experiments, and drawing conclusions</p>
+                    <h4 className="font-semibold text-gray-800">Percentages & Decimals</h4>
+                    <p className="text-gray-600">Calculating percentage changes and converting between fractions, decimals, and percentages</p>
                   </div>
-                </div>
+                </motion.div>
                 
-                <div className="flex items-start gap-3">
-                  <div className="bg-purple-100 p-2 rounded-full">
-                    <Check className="w-5 h-5 text-purple-600" />
-                  </div>
+                <motion.div 
+                  variants={fadeIn}
+                  className="flex items-start gap-3"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.1, backgroundColor: "#93c5fd" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="bg-blue-100 p-2 rounded-full"
+                  >
+                    <Check className="w-5 h-5 text-blue-600" />
+                  </motion.div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Practical Kitchen Science</h4>
-                    <p className="text-gray-600">Understanding how scientific principles apply to cooking and food production</p>
+                    <h4 className="font-semibold text-gray-800">Problem-Solving Strategies</h4>
+                    <p className="text-gray-600">Developing methodical approaches to multi-step mathematical problems</p>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </motion.div>
           </motion.div>
           
@@ -502,63 +581,74 @@ export default function ScienceActivityParentPage() {
           <motion.h3 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-2xl font-bold text-center text-purple-800 mb-6"
+            transition={{ duration: 0.5 }}
+            className="text-2xl font-bold text-center text-blue-800 mb-6"
           >
             What Parents Are Saying
           </motion.h3>
           
           <motion.div 
-            variants={staggerChildren}
             initial="hidden"
             animate="visible"
+            variants={staggerChildren}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
           >
             {testimonials.map((testimonial, index) => (
               <motion.div 
-                key={index} 
+                key={index}
                 variants={fadeIn}
-                whileHover="hover"
-                className="bg-white p-6 rounded-lg shadow-md border-t-4 border-purple-400 flex flex-col"
+                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-400 flex flex-col"
               >
                 <div className="flex-1">
                   <p className="text-gray-700 mb-4 italic">"{testimonial.quote}"</p>
                 </div>
-                <p className="text-purple-800 font-medium">{testimonial.parent}</p>
+                <p className="text-blue-800 font-medium">{testimonial.parent}</p>
               </motion.div>
             ))}
           </motion.div>
           
           {/* CTA */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-purple-700 text-white rounded-xl shadow-xl p-8 text-center"
+            transition={{ duration: 0.7 }}
+            className="bg-blue-700 text-white rounded-xl shadow-xl p-8 text-center"
           >
-            <h3 className="text-3xl font-bold mb-4">Ready to ignite your child's passion for science?</h3>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Spaces fill quickly for our popular STEM workshops. Reserve your child's spot today!
-            </p>
+            <motion.h3 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-3xl font-bold mb-4"
+            >
+              Make math deliciously engaging!
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-xl mb-8 max-w-2xl mx-auto"
+            >
+              Perfect for middle school students who need to strengthen their math fundamentals or are ready for more advanced concepts. Limited spots available!
+            </motion.p>
             <motion.button 
               onClick={toggleRegistrationInfo}
               whileHover="hover"
               whileTap="tap"
               variants={buttonHover}
-              className="bg-white text-purple-700 hover:bg-purple-100 px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-colors"
+              className="bg-white text-blue-700 hover:bg-blue-100 px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition-colors"
             >
               Reserve Your Spot Now
             </motion.button>
           </motion.div>
-          
-          {/* FAQ */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mt-16"
           >
-            <h3 className="text-2xl font-bold text-center text-purple-800 mb-8">Frequently Asked Questions</h3>
+            <h3 className="text-2xl font-bold text-center text-blue-800 mb-8">Frequently Asked Questions</h3>
             
             <motion.div 
               variants={staggerChildren}

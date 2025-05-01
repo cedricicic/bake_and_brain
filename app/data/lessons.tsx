@@ -42,25 +42,25 @@ export const lessons: Lesson[] = [
     image: '/candy.jpg'
   },
   {
-    id: 'measurement-math',
+    id: 'cookie-baking',
     title: 'Measurement Matters',
     subtitle: 'Math in the Kitchen',
     description: 'Learn about fractions, ratios, and conversions through practical baking measurements.',
-    duration: '45 min',
-    grade: '6-7',
+    duration: '2.5 Hours',
+    grade: '7-9',
     icon: <GraduationCap className="w-6 h-6" />,
-    color: 'bg-green-500',
-    image: '/measurement-math.jpg'
+    color: 'bg-blue-500',
+    image: '/cookies.jpg'
   },
   {
-    id: 'team-baking',
+    id: 'pizza-shaping',
     title: 'Team Baking Challenge',
     subtitle: 'Collaborative Learning',
-    description: 'A group activity that teaches teamwork, communication, and problem-solving through baking.',
-    duration: '90 min',
-    grade: '7-8',
+    description: 'Mastering Circle Geometry, Surface Area & Volume Through Pizza Making, learn to calculate the optimal size for different serving needs',
+    duration: '2.5 hours',
+    grade: '8-10',
     icon: <Users className="w-6 h-6" />,
-    color: 'bg-orange-500',
-    image: '/team-baking.jpg'
+    color: 'bg-red-500',
+    image: '/pizza.jpg'
   }
 ]; 
