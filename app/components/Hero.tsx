@@ -1,5 +1,7 @@
 'use client';
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -22,14 +24,16 @@ export default function Hero() {
           <p className="text-xl md:text-2xl text-white mb-8">
             Where creativity meets deliciousness
           </p>
-          <Link
-  href="/lessons"
-  className="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
->
-  Get Started
-</Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/lessons"
+              className="inline-block bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+            >
+              Get Started
+            </Link>
+          </motion.div>
         </div>
       </div>
     </div>
   );
-} 
+}
