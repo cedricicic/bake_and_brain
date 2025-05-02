@@ -155,7 +155,7 @@ export default function Contact() {
                 <div className="ml-3">
                   <h3 className="text-lg font-medium text-gray-900">Hours</h3>
                   <p className="mt-1 text-gray-600">
-                    Monday - Friday: 9AM - 5PM PST
+                    Monday - Friday: 9AM - 5PM 
                   </p>
                 </div>
               </div>
@@ -269,7 +269,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-2 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition sm:text-sm"
+                      className=" text-black mt-1 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-2 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition sm:text-sm"
                     />
                   </div>
 
@@ -287,7 +287,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-2 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition sm:text-sm"
+                      className=" text-black mt-1 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-2 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition sm:text-sm"
                     />
                   </div>
 
@@ -304,7 +304,7 @@ export default function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-2 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition sm:text-sm"
+                      className=" text-black mt-1 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-2 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition sm:text-sm"
                     />
                   </div>
 
@@ -322,7 +322,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="mt-1 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-2 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition sm:text-sm resize-none"
+                      className=" text-black mt-1 w-full rounded-xl border border-gray-300 bg-gray-50 px-4 py-2 shadow-inner focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition sm:text-sm resize-none"
                     />
                   </div>
                 </div>

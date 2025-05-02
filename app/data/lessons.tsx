@@ -24,7 +24,7 @@ export const lessons: Lesson[] = [
     title: 'Rise to the Occasion',
     subtitle: 'Exploring Yeast, Gas, and Growth',
     description: 'A hands-on science experiment that combines baking with biology, teaching students about yeast fermentation and gas laws.',
-    duration: '80 min',
+    duration: '2.5 hours',
     grade: '9-10',
     icon: <FlaskRound className="w-6 h-6" />,
     color: 'bg-purple-500',
