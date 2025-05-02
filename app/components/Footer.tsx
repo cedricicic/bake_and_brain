@@ -24,13 +24,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-600 hover:text-gray-900">
-                  About
+                <Link href="/lessons" className="text-gray-600 hover:text-gray-900">
+                  Lessons
                 </Link>
               </li>
               <li>
-                <Link href="/lessons" className="text-gray-600 hover:text-gray-900">
-                  Lessons
+                <Link href="/class-schedule" className="text-gray-600 hover:text-gray-900">
+                  Schedule
                 </Link>
               </li>
               <li>
@@ -38,6 +38,12 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link href="/about" className="text-gray-600 hover:text-gray-900">
+                  About
+                </Link>
+              </li>
+
             </ul>
           </div>
           <div>
