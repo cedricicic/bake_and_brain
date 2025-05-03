@@ -2,12 +2,23 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Autoplay failed:", error);
+      });
+    }
+  }, []);
+
   return (
     <div className="relative h-screen w-full">
       <video
-        autoPlay
+        ref={videoRef}
         loop
         muted
         playsInline
