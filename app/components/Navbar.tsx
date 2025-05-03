@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -71,20 +72,53 @@ export default function Navbar() {
     closed: { rotate: 0, y: 0, width: '100%', transition: { duration: 0.4 } }
   };
 
+  // Logo animation variants
+  const logoVariants = {
+    hover: { 
+      rotate: [0, -10, 10, -5, 5, 0],
+      scale: 1.15,
+      transition: { 
+        duration: 0.8,
+        ease: "easeInOut"
+      }
+    },
+    initial: { 
+      rotate: 0,
+      scale: 1,
+      transition: { 
+        duration: 0.4
+      }
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center text-xl font-bold text-gray-900">
-              <Image
-                src="/logo2.svg"
-                alt="Bake & Brain Logo"
-                width={32}
-                height={32}
-                className="mr-2"
-              />
-              Bake & Brain
+              <motion.div
+                onMouseEnter={() => setIsLogoHovered(true)}
+                onMouseLeave={() => setIsLogoHovered(false)}
+                animate={isLogoHovered ? "hover" : "initial"}
+                variants={logoVariants}
+              >
+                <Image
+                  src="/logo2.svg"
+                  alt="Bake & Brain Logo"
+                  width={32}
+                  height={32}
+                  className="mr-2"
+                />
+              </motion.div>
+              <motion.span
+                animate={{ 
+                  // color: isLogoHovered ? "#6366f1" : "#111827",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                Bake & Brain
+              </motion.span>
             </Link>
           </div>
           
