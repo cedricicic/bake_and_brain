@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
@@ -48,7 +50,7 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4 text-gray-900">Connect With Us</h3>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-4">
               <a href="#" className="text-gray-600 hover:text-gray-900">
                 <span className="sr-only">Facebook</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -62,6 +64,29 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
+            <div className="flex justify-start">
+  <div className="hidden md:block">
+    <motion.div
+      animate={{
+        rotate: [0, 20, 0, -20, 0],
+      }}
+      transition={{
+        duration: 1.5,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "loop"
+      }}
+    >
+      <Image 
+        src="/whisk.svg" 
+        alt="Whisk" 
+        width={100} 
+        height={100}
+        className="text-gray-600"
+      />
+    </motion.div>
+  </div>
+</div>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-300 text-center text-gray-600">
@@ -71,4 +96,4 @@ export default function Footer() {
     </footer>
     </>
   );
-} 
+}
