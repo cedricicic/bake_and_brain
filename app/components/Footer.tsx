@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-xl font-bold mb-4 text-gray-900">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="flex flex-wrap justify-start gap-x-4 gap-y-2 md:block md:space-y-2">
               <li>
                 <Link href="/" className="text-gray-600 hover:text-gray-900">
                   Home
