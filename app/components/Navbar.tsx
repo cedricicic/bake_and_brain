@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
@@ -75,7 +76,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold text-gray-900">
+            <Link href="/" className="flex items-center text-xl font-bold text-gray-900">
+              <Image
+                src="/logo2.svg"
+                alt="Bake & Brain Logo"
+                width={32}
+                height={32}
+                className="mr-2"
+              />
               Bake & Brain
             </Link>
           </div>
