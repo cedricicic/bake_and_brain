@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Bake & Brain",
   description: "Make learning fun and delicious",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
